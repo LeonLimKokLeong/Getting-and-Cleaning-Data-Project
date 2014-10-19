@@ -63,7 +63,7 @@ dataset <- rbind(test, train)
 ## Using Regular Expression, extract column names containing with mean OR std
 ## Mean_Std_Sdataset contains the Mean and Standard Deviation filtered dataset
 
-Mean_Std_dataset <- dataset[, c( 1, 2, grep("mean|std", names(dataset), ignore.case=TRUE) )]
+Mean_Std_dataset <- dataset[, c( 1, 2, grep("mean\\(\\)|std\\(\\)", names(dataset), ignore.case=TRUE) )]
 
 
 #################################################################################
