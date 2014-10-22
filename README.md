@@ -62,7 +62,4 @@ Removing the brackets "()"" in the column labels.
 Column 1 contains the Subject, column 2 contains the Activity.
 The datas are aggregated by the Subject and Activity, and column 3 onwards are average off using mean.
 
-
-###6. Write the filtered and aggregated data into a text file.
-
-write.table(Mean_By_Subject_Activity, file = "DataSet_mean_by_subject_activity.txt", row.name=FALSE)
+Write the filtered and aggregated data into a text file without rownames.
