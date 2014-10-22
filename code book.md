@@ -9,13 +9,13 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 
 ##Cleaned Dataset
 
-1.      The dataset provides the average readings of 30 subjects performing 6 different activities.
+1. The dataset provides the average readings of 30 subjects performing 6 different activities.
 
         * Subject
         * Activity
 
 
-2.      The mean and Standard deviation of the following readings are provided for the following list, denoted by -mean or -std at the end of the column name.
+2. The mean and Standard deviation of the following readings are provided for the following list, denoted by -mean or -std at the end of the column name.
 
         * tBodyAccMag
         * tGravityAccMag
@@ -28,7 +28,7 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
         * fBodyBodyGyroJerkMag
 
 
-3.      The following readings were further split into X Y Z axis, denoted by -X -Y -Z at the end of the column name.
+3. The following readings were further split into X Y Z axis, denoted by -X -Y -Z at the end of the column name.
 
         * tBodyAcc
         * tGravityAcc
@@ -40,7 +40,7 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
         * fBodyGyro
 
 
-4.      The full list of data are provided below 
+4. The full list of data are provided below 
 
         * Subject
         * Activity
