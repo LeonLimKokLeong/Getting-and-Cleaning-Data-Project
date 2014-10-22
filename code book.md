@@ -10,8 +10,8 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 ##Cleaned Dataset
 * The dataset provides the average readings of 30 subjects performing 6 different activities.
 
-Subject
-Activity
+| Subject |
+| Activity |
 
 
 * The mean and Standard deviation of the following readings are provided for the following list, denoted by -mean or -std at the end of the column name.
