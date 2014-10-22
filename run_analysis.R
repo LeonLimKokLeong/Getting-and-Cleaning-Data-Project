@@ -28,12 +28,15 @@ colnames(Y_train) <- "Activity"
 
 ## Read in Subject info from subject_*.txt
 ## Name the column "Subject"
-
+## Add in a flag to indication if the data set comes from TEST or TRAIN
+## Type is optional and is dropped during the aggregation
 subject_test <- read.table(".\\UCI HAR Dataset\\test\\subject_test.txt", header = TRUE)
 colnames(subject_test) <- "Subject"
+subject_test["Type"] <- "TEST"
 
 subject_train <- read.table(".\\UCI HAR Dataset\\train\\subject_train.txt", header = TRUE)
 colnames(subject_train) <- "Subject"
+subject_train["Type"] <- "TRAIN"
 
 ## Bind TEST data together
 
@@ -60,7 +63,7 @@ dataset <- rbind(test, train)
 ## Using Regular Expression, extract column names containing with mean OR std
 ## Mean_Std_Sdataset contains the Mean and Standard Deviation filtered dataset
 
-Mean_Std_dataset <- dataset[, c( 1, 2, grep("mean\\(\\)|std\\(\\)", names(dataset), ignore.case=TRUE) )]
+Mean_Std_dataset <- dataset[, c( 1, 2, 3, grep("mean\\(\\)|std\\(\\)", names(dataset), ignore.case=TRUE) )]
 
 
 ################################################################################
@@ -77,7 +80,7 @@ activities <- read.table(".\\UCI HAR Dataset\\activity_labels.txt")
 for ( i in activities$V1)
 {
         ## Replace the Action field in MSdataset with the value in activities
-        Mean_Std_dataset[Mean_Std_dataset[, "Activity"] == i, 2] <- as.character(activities[i, 2])
+        Mean_Std_dataset[Mean_Std_dataset[, "Activity"] == i, 3] <- as.character(activities[i, 2])
 }
 
 
@@ -97,11 +100,13 @@ colnames(Mean_Std_dataset) <- gsub("\\(\\)","",colnames(Mean_Std_dataset))
 #################################################################################
 
 ## aggregate Mean_Std_dataset
-##           from column 3 onwards
+##           from column 4 onwards
 ##           by Subject, Activity
 ##           using mean
+## Note that column Type is dropped from the aggregation as it is not in the requirement.
+## If need to, Type can be added into the list to aggregate accordingly
 Mean_By_Subject_Activity <- aggregate(
-                                        Mean_Std_dataset[,3:ncol(Mean_Std_dataset)],
+                                        Mean_Std_dataset[,4:ncol(Mean_Std_dataset)],
                                         list(Subject = Mean_Std_dataset$Subject, Activity = Mean_Std_dataset$Activity),
                                         mean
                                      )
