@@ -110,4 +110,4 @@ Mean_By_Subject_Activity <- aggregate(
                                         list(Subject = Mean_Std_dataset$Subject, Activity = Mean_Std_dataset$Activity),
                                         mean
                                      )
-write.table(Mean_By_Subject_Activity, file = "mean_by_subject_activity.txt", row.name=FALSE)
+write.table(Mean_By_Subject_Activity, file = "mean_subject_activity.txt", row.name=FALSE)
